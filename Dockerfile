@@ -27,8 +27,10 @@ WORKDIR /paper
 
 COPY --from=dl /download/paper.jar paper.jar
 COPY entrypoint.sh .
+COPY healthcheck.sh .
 
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh && \
+    chmod +x ./healthcheck.sh
 
 ENTRYPOINT ["/paper/entrypoint.sh"]
 
