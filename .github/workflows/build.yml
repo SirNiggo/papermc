@@ -33,6 +33,5 @@ jobs:
           build-args: |
             MC_VERSION=${{ matrix.paper.mc_version }}
             PAPER_VERSION=${{ matrix.paper.paper_version }}
-          context: v1/
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
