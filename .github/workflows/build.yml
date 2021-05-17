@@ -29,10 +29,10 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: nicoenking/papermc:${ matrix.paper.mc_version }
+          tags: nicoenking/papermc:${{ matrix.paper.mc_version }}
           build-args: |
-            MC_VERSION=${ matrix.paper.mc_version }
-            PAPER_VERSION=${ matric.paper.paper_version }
+            MC_VERSION=${{ matrix.paper.mc_version }}
+            PAPER_VERSION=${{ matric.paper.paper_version }}
           context: v1/
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
