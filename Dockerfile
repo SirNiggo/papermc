@@ -12,6 +12,9 @@ RUN apt update && \
 
 FROM openjdk:16-slim-buster
 
+EXPOSE 25565/tcp
+EXPOSE 25565/udp
+
 ARG MC_VERSION
 ARG PAPER_VERSION
 
@@ -27,5 +30,5 @@ COPY entrypoint.sh .
 
 RUN chmod +x ./entrypoint.sh
 
-CMD ["/bin/bash", "-c", "./entrypoint.sh"]
+ENTRYPOINT ["/paper/entrypoint.sh"]
 
