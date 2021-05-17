@@ -60,4 +60,4 @@ if [ -n "$JAVA_OPTS" ]; then
   echo "Using JAVA_OPTS: $JAVA_OPTS"
 fi
 
-exec java $JAVA_OPTS -jar /opt/papermc.jar "$@"
+exec java $JAVA_OPTS -jar papermc.jar "$@"

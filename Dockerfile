@@ -8,7 +8,7 @@ ARG PAPER_VERSION
 RUN apt update && \
     apt upgrade -y && \
     apt install curl -y && \
-    curl https://papermc.io/api/v2/projects/paper/versions/${MC_VERSION}/builds/${PAPER_VERSION}/downloads/paper-${MC_VERSION}-${PAPER_VERSION}.jar --output paper.jar
+    curl https://papermc.io/api/v2/projects/paper/versions/${MC_VERSION}/builds/${PAPER_VERSION}/downloads/paper-${MC_VERSION}-${PAPER_VERSION}.jar --output papermc.jar
 
 FROM openjdk:16-slim-buster
 
@@ -25,12 +25,12 @@ ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:Max
 
 WORKDIR /paper
 
-COPY --from=dl /download/paper.jar paper.jar
+COPY --from=dl /download/papermc.jar papermc.jar
 COPY entrypoint.sh .
 COPY healthcheck.sh .
 
 RUN chmod +x ./entrypoint.sh && \
     chmod +x ./healthcheck.sh
 
-ENTRYPOINT ["/paper/entrypoint.sh"]
+ENTRYPOINT ["entrypoint.sh"]
 
