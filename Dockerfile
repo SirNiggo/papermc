@@ -32,5 +32,5 @@ COPY healthcheck.sh .
 RUN chmod +x ./entrypoint.sh && \
     chmod +x ./healthcheck.sh
 
-CMD ["/paper/entrypoint.sh"]
+ENTRYPOINT ["/paper/entrypoint.sh"]
 
