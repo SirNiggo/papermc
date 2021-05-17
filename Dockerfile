@@ -25,5 +25,7 @@ WORKDIR /paper
 COPY --from=dl /download/paper.jar paper.jar
 COPY entrypoint.sh .
 
+RUN chmod +x ./entrypoint.sh
+
 CMD ["/bin/bash", "-c", "./entrypoint.sh"]
 
