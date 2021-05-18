@@ -60,4 +60,4 @@ if [ -n "$JAVA_OPTS" ]; then
   echo "Using JAVA_OPTS: $JAVA_OPTS"
 fi
 
-exec java $JAVA_OPTS -jar papermc.jar "$@"
+exec java $JAVA_OPTS -jar papermc.jar --nogui --server-port=$SERVER_PORT --online-mode=$ONLINE_MODE
