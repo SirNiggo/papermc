@@ -27,7 +27,7 @@ ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:Max
 
 WORKDIR /paper
 
-COPY --from=dl /download/papermc.jar papermc.jar
+COPY --from=dl /download/papermc.jar /opt/paper/papermc.jar
 COPY entrypoint.sh /entrypoint
 COPY healthcheck.sh /healthcheck
 
