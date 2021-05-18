@@ -28,11 +28,11 @@ ENV JAVA_OPTS="-XX:+UnlockExperimentalVMOptions -XX:+UseContainerSupport -XX:Max
 WORKDIR /paper
 
 COPY --from=dl /download/papermc.jar papermc.jar
-COPY entrypoint.sh .
-COPY healthcheck.sh .
+COPY entrypoint.sh /entrypoint
+COPY healthcheck.sh /healthcheck
 
-RUN chmod +x ./entrypoint.sh && \
-    chmod +x ./healthcheck.sh
+RUN chmod +x /entrypoint && \
+    chmod +x /healthcheck
 
-ENTRYPOINT ["/paper/entrypoint.sh"]
+CMD ["/bin/bash", "-c", "/entrypoint"]
 
